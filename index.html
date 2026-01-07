@@ -153,80 +153,335 @@
 <script>
     // --- QUESTION DATABASE (Editable) ---
     const database = [
-        // NUMERICAL (Cut-e style: practical math)
-        {
-            category: "Applied Numeracy",
-            question: "An A350 consumes 5,800 kg of fuel per hour. You have 24,000 kg of fuel on board. After flying for 3.5 hours, how much fuel remains?",
-            options: ["3,700 kg", "4,300 kg", "4,800 kg", "5,200 kg"],
-            correct: 0 // 5800 * 3.5 = 20,300. 24,000 - 20,300 = 3,700.
-        },
-        {
-            category: "Applied Numeracy",
-            question: "Currency Conversion: 1 USD = 7.8 HKD. You have a per diem of 350 USD. You spend 1,200 HKD on dinner. How much USD is left?",
-            options: ["$154 USD", "$196 USD", "$205 USD", "$230 USD"],
-            correct: 1 // 1200 / 7.8 = ~153.8 USD. 350 - 153.8 = 196.15.
-        },
-        {
-            category: "Applied Numeracy",
-            question: "A chart shows Climb Rate vs. Weight. At 200 tons, climb is 1,500 fpm. At 240 tons, climb is 1,200 fpm. Assuming a linear relationship, what is the climb rate at 220 tons?",
-            options: ["1,300 fpm", "1,350 fpm", "1,400 fpm", "1,450 fpm"],
-            correct: 1 // Midpoint between 1500 and 1200 is 1350.
-        },
-        
-        // SPATIAL (Orientation / Instruments)
-        {
-            category: "Spatial Orientation",
-            question: "Your Heading is 270 (West). The ADF needle (Relative Bearing) points 090 (Right Wing). Where is the station relative to the map (True North)?",
-            options: ["North (000)", "East (090)", "South (180)", "West (270)"],
-            correct: 0 // Heading 270 + Relative 090 = 360 (North).
-        },
-        {
-            category: "Spatial Orientation",
-            question: "You are flying South (180). You are instructed to turn Left 45 degrees, then Right 10 degrees. What is your final Heading?",
-            options: ["135", "145", "215", "225"],
-            correct: 1 // 180 - 45 = 135. 135 + 10 = 145.
-        },
+  // --- Applied Numeracy (25) ---
+  {
+    category: "Applied Numeracy",
+    question: "Fuel burn is 5,200 kg/hr. Flight time is 2 hr 30 min. Reserve is 45 min at the same burn. Total fuel required?",
+    options: ["13,000 kg", "15,600 kg", "16,900 kg", "18,200 kg"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "1 USD = 7.8 HKD. Convert 2,340 HKD to USD (nearest dollar).",
+    options: ["$280", "$300", "$320", "$340"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A training group has 18 candidates: 12 male, 6 female. What percentage are female?",
+    options: ["25%", "30%", "33%", "40%"],
+    correct: 0
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A stopwatch shows 4 min 48 sec. Express this time in seconds.",
+    options: ["268", "288", "308", "348"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Groundspeed is 240 knots. How far (NM) is covered in 35 minutes?",
+    options: ["120", "130", "140", "150"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A table shows correct answers: 34 out of 40. What is the score percentage?",
+    options: ["80%", "85%", "90%", "95%"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "An item cost increases from HKD 8,000 to HKD 9,200. Percentage increase?",
+    options: ["10%", "12%", "15%", "20%"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Convert 2.5 hours to minutes.",
+    options: ["120", "135", "150", "165"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "If 1 kg ≈ 2.2 lb, approximately how many lb is 23 kg?",
+    options: ["46.0 lb", "50.6 lb", "55.0 lb", "60.7 lb"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "You need to split 1,500 minutes of simulator time equally among 12 cadets. Minutes per cadet?",
+    options: ["100", "115", "125", "150"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A candidate answers 42 questions in 28 minutes. Average questions per minute?",
+    options: ["1.0", "1.2", "1.5", "2.0"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Errors reduced from 20 to 14. By what percentage did errors reduce?",
+    options: ["20%", "25%", "30%", "35%"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "If 1 NM = 1.852 km, approximately how many km is 120 NM?",
+    options: ["200 km", "210 km", "222 km", "240 km"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Climb rate is 1,800 ft/min. How many feet gained in 6 minutes?",
+    options: ["9,600", "10,200", "10,800", "11,400"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A training budget is HKD 2,400,000. If 15% is for materials, how much is that?",
+    options: ["HKD 240,000", "HKD 300,000", "HKD 360,000", "HKD 420,000"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Two candidates run 2.4 km. A averages 5:00 min/km, B averages 4:30 min/km. How much earlier does B finish?",
+    options: ["1:00", "1:12", "1:24", "1:48"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A test has 60 questions. You answered 48 correctly. What fraction is correct (simplified)?",
+    options: ["3/5", "4/5", "5/6", "7/8"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "You must be at the gate 45 minutes before departure. Departure is 14:20. Latest gate time?",
+    options: ["13:20", "13:35", "13:45", "14:05"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Groundspeed changes from 450 kt to 420 kt over 1,260 NM. How many minutes longer is the slower leg?",
+    options: ["8", "10", "12", "15"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A recruiter shortlists 30 from 500 applicants. What is the selection rate?",
+    options: ["3%", "5%", "6%", "10%"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "If 4 pilots share a bill of HKD 1,260 equally, how much each?",
+    options: ["HKD 300", "HKD 315", "HKD 330", "HKD 360"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "Convert 0.75 hours to minutes.",
+    options: ["35", "40", "45", "50"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A battery lasts 9.5 hours. If used 2 hours per day, during which day will it run out?",
+    options: ["Day 4", "Day 5", "Day 6", "Day 7"],
+    correct: 1
+  },
+  {
+    category: "Applied Numeracy",
+    question: "A candidate’s accuracy improves from 88% to 94%. Increase in percentage points?",
+    options: ["4", "5", "6", "7"],
+    correct: 2
+  },
+  {
+    category: "Applied Numeracy",
+    question: "If you read 18 pages in 24 minutes, what is your reading speed?",
+    options: ["0.5", "0.75", "1.0", "1.25"],
+    correct: 1
+  },
 
-        // VERBAL (True/False/Cannot Say - Logic)
-        {
-            category: "Verbal Logic",
-            question: "PASSAGE: 'The A350 XWB uses composite materials to reduce weight and corrosion. Unlike aluminum, composites do not fatigue in the same way, allowing for higher cabin pressure and humidity.'\n\nCONCLUSION: 'The A350 is immune to all forms of structural damage.'",
-            options: ["True", "False", "Cannot Say"],
-            correct: 1 // False. "Do not fatigue in the same way" does not mean immune to ALL damage.
-        },
-        {
-            category: "Verbal Logic",
-            question: "PASSAGE: 'Cathay Pacific's Cadet Program requires candidates to have ICAO Level 4 English. Candidates with Level 5 or 6 are given priority in the queue.'\n\nCONCLUSION: 'A candidate with Level 4 English will never be selected if a Level 6 candidate applies.'",
-            options: ["True", "False", "Cannot Say"],
-            correct: 2 // Cannot Say. Priority does not mean exclusivity; other factors matter.
-        },
+  // --- Verbal Logic (15) ---
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Applicants who meet the minimum requirements are invited to online aptitude testing.'\n\nCONCLUSION: 'All applicants are invited to online aptitude testing.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'A go-around is a normal manoeuvre when approach stability criteria are not met.'\n\nCONCLUSION: 'A go-around indicates poor piloting.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Some incidents involve miscommunication between crew members.'\n\nCONCLUSION: 'Miscommunication is the cause of all incidents.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'The programme includes ground school and flight training.'\n\nCONCLUSION: 'The programme includes flight training.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 0
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'If workload increases, prioritize flying the aircraft, then navigation, then communication.'\n\nCONCLUSION: 'Communication is always the first priority.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Candidates may be asked about motivation and teamwork.'\n\nCONCLUSION: 'Candidates will definitely be asked about teamwork.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 2
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Automation can reduce workload but requires active monitoring.'\n\nCONCLUSION: 'Automation removes the need for monitoring.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'A tailwind increases take-off distance.'\n\nCONCLUSION: 'A tailwind decreases take-off distance.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Some composite structures resist corrosion better than aluminum.'\n\nCONCLUSION: 'Composites cannot corrode.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 2
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Pilots are trained to follow SOPs and challenge deviations.'\n\nCONCLUSION: 'Following SOPs can improve safety.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 0
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'The assessment includes multiple sections with strict time limits.'\n\nCONCLUSION: 'Time management is important in the assessment.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 0
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Candidates with strong math skills often perform well in numerical reasoning.'\n\nCONCLUSION: 'Strong math skills guarantee passing.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'Fatigue can impair performance.'\n\nCONCLUSION: 'Fatigue never affects performance.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'The interview panel may include pilots and HR.'\n\nCONCLUSION: 'The panel will include at least one pilot.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 2
+  },
+  {
+    category: "Verbal Logic",
+    question: "PASSAGE: 'A stable approach requires correct speed, path, and configuration.'\n\nCONCLUSION: 'Speed is irrelevant to approach stability.'",
+    options: ["True", "False", "Cannot Say"],
+    correct: 1
+  },
 
-        // TECHNICAL (Interview / Physics)
-        {
-            category: "Technical Knowledge",
-            question: "In a steady, straight-and-level flight, which of the following is true?",
-            options: ["Lift equals Weight; Thrust equals Drag", "Lift is greater than Weight", "Thrust is greater than Drag", "Lift equals Drag"],
-            correct: 0
-        },
-        {
-            category: "Technical Knowledge",
-            question: "Bernoulli's Principle states that as the speed of a fluid (air) increases, its pressure:",
-            options: ["Increases", "Decreases", "Remains Constant", "Fluctuates"],
-            correct: 1
-        },
-        {
-            category: "Technical Knowledge",
-            question: "Which aircraft in the CX fleet is primarily made of Carbon Fibre Reinforced Polymer (CFRP)?",
-            options: ["Boeing 777-300ER", "Airbus A330-300", "Airbus A350", "Boeing 747-8F"],
-            correct: 2
-        },
-        {
-            category: "Technical Knowledge",
-            question: "If you encounter windshear (sudden loss of headwind) during takeoff, what happens to your Indicated Airspeed (IAS) and Lift initially?",
-            options: ["Both Increase", "Both Decrease", "IAS increases, Lift decreases", "No change"],
-            correct: 1 // Loss of headwind = loss of airspeed = loss of lift.
-        }
-    ];
+  // --- Abstract Reasoning (10) ---
+  { category: "Abstract Reasoning", question: "Find the next number: 2, 4, 8, 16, ?", options: ["18", "20", "24", "32"], correct: 3 },
+  { category: "Abstract Reasoning", question: "Find the next number: 3, 6, 10, 15, ?", options: ["19", "20", "21", "22"], correct: 2 },
+  { category: "Abstract Reasoning", question: "Find the odd one out: 16, 25, 36, 49, 60", options: ["16", "25", "49", "60"], correct: 3 },
+  { category: "Abstract Reasoning", question: "Find the next number: 1, 1, 2, 3, 5, ?", options: ["6", "7", "8", "9"], correct: 2 },
+  { category: "Abstract Reasoning", question: "Find the next number: 100, 50, 25, 12.5, ?", options: ["6.25", "6", "5.25", "4.5"], correct: 0 },
+  { category: "Abstract Reasoning", question: "Find the next number: 5, 7, 11, 19, ?", options: ["27", "31", "35", "37"], correct: 2 },
+  { category: "Abstract Reasoning", question: "Find the next number: 9, 7, 8, 6, 7, ?", options: ["4", "5", "6", "7"], correct: 1 },
+  { category: "Abstract Reasoning", question: "Find the next number: 2, 3, 5, 8, 12, ?", options: ["15", "17", "18", "20"], correct: 1 },
+  { category: "Abstract Reasoning", question: "Find the next number: 4, 9, 16, 25, ?", options: ["30", "34", "36", "49"], correct: 2 },
+  { category: "Abstract Reasoning", question: "Which completes the pattern: A, C, F, J, ?", options: ["M", "N", "O", "P"], correct: 2 },
+
+  // --- Spatial Orientation (15) ---
+  { category: "Spatial Orientation", question: "Heading 360. Turn right 80 degrees. New heading?", options: ["080", "100", "280", "340"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 090. Turn left 120 degrees. New heading?", options: ["330", "300", "210", "030"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 145. Turn right 200 degrees. New heading?", options: ["345", "005", "225", "255"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 270. Relative bearing is 045. QDM?", options: ["315", "045", "225", "090"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 030. Relative bearing is 300. QDM?", options: ["330", "300", "150", "090"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 200. Relative bearing is 110. QDM?", options: ["310", "090", "010", "120"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 310. Turn left 95 degrees. New heading?", options: ["215", "225", "305", "045"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 005. Turn left 20 degrees. New heading?", options: ["345", "355", "025", "325"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 180. Turn right 45 then right 60. New heading?", options: ["255", "285", "315", "045"], correct: 1 },
+  { category: "Spatial Orientation", question: "Heading 225. Relative bearing 180. QDM?", options: ["045", "225", "315", "090"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 090. Relative bearing 270. QDM?", options: ["000", "090", "180", "270"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 260. Turn left 170 degrees. New heading?", options: ["090", "070", "080", "100"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 315. Relative bearing 020. QDM?", options: ["335", "025", "295", "045"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 120. Turn right 300 degrees. New heading?", options: ["060", "420", "180", "030"], correct: 0 },
+  { category: "Spatial Orientation", question: "Heading 010. Relative bearing 190. QDM?", options: ["190", "200", "170", "160"], correct: 1 },
+
+  // --- Technical Knowledge (20) ---
+  { category: "Technical Knowledge", question: "In straight-and-level unaccelerated flight:", options: ["Lift = Weight and Thrust = Drag", "Lift > Weight", "Thrust > Drag", "Lift = Drag"], correct: 0 },
+  { category: "Technical Knowledge", question: "If angle of attack increases beyond the critical value, the wing will:", options: ["Generate more lift indefinitely", "Stall and lift decreases", "Increase drag only", "Increase thrust"], correct: 1 },
+  { category: "Technical Knowledge", question: "A tailwind on takeoff generally:", options: ["Decreases takeoff distance", "Increases takeoff distance", "Has no effect", "Eliminates crosswind"], correct: 1 },
+  { category: "Technical Knowledge", question: "Which layer of the atmosphere contains most weather?", options: ["Stratosphere", "Troposphere", "Mesosphere", "Thermosphere"], correct: 1 },
+  { category: "Technical Knowledge", question: "Standard pressure at sea level is approximately:", options: ["1013 hPa", "850 hPa", "760 hPa", "29.92 hPa"], correct: 0 },
+  { category: "Technical Knowledge", question: "Indicated airspeed (IAS) is primarily related to:", options: ["True airspeed", "Dynamic pressure", "Groundspeed", "Mach number only"], correct: 1 },
+  { category: "Technical Knowledge", question: "If temperature increases (all else equal), true airspeed for a given IAS will generally:", options: ["Decrease", "Increase", "Stay the same", "Become zero"], correct: 1 },
+  { category: "Technical Knowledge", question: "In a level turn, to maintain altitude the pilot generally needs:", options: ["Less lift", "More lift", "No change in lift", "Less drag"], correct: 1 },
+  { category: "Technical Knowledge", question: "Which instrument shows rate of climb/descent?", options: ["Altimeter", "Vertical Speed Indicator", "Heading Indicator", "Turn Coordinator"], correct: 1 },
+  { category: "Technical Knowledge", question: "If pitot + drain hole are blocked, IAS will behave like:", options: ["Altimeter", "Remain accurate", "Compass", "Clock"], correct: 0 },
+  { category: "Technical Knowledge", question: "Density altitude increases when:", options: ["Pressure increases and temperature decreases", "Temperature increases and pressure decreases", "Temperature decreases and pressure increases", "Humidity decreases only"], correct: 1 },
+  { category: "Technical Knowledge", question: "Clouds associated with thunderstorms are typically:", options: ["Stratus", "Cumulonimbus", "Cirrus", "Nimbostratus"], correct: 1 },
+  { category: "Technical Knowledge", question: "A microburst is most associated with:", options: ["Icing", "Windshear", "Clear air turbulence only", "Volcanic ash"], correct: 1 },
+  { category: "Technical Knowledge", question: "The primary purpose of flaps during approach is to:", options: ["Reduce lift", "Increase lift at lower speeds", "Increase fuel burn", "Reduce thrust"], correct: 1 },
+  { category: "Technical Knowledge", question: "If weight increases (same configuration), stall speed will generally:", options: ["Decrease", "Increase", "Stay the same", "Become zero"], correct: 1 },
+  { category: "Technical Knowledge", question: "QNH ensures the altimeter reads:", options: ["Height above runway", "Altitude above mean sea level when on the ground at that station", "Flight level", "Distance to VOR"], correct: 1 },
+  { category: "Technical Knowledge", question: "A runway with standing water increases risk of:", options: ["Hydroplaning", "Windshear", "Icing", "Volcanic ash"], correct: 0 },
+  { category: "Technical Knowledge", question: "If you reduce thrust without changing pitch, initially the aircraft will:", options: ["Climb", "Descend", "Accelerate", "Turn left"], correct: 1 },
+  { category: "Technical Knowledge", question: "Which is a common cause of spatial disorientation?", options: ["Strong visual cues", "Lack of external visual references", "Stable horizon", "Bright daylight"], correct: 1 },
+  { category: "Technical Knowledge", question: "CRM stands for:", options: ["Cockpit Resource Management", "Crew Resource Management", "Crew Risk Monitoring", "Control Response Management"], correct: 1 },
+
+  // --- CRM / SJT (15) ---
+  { category: "CRM / SJT", question: "During a group task, one member dominates and ignores others. Best response?", options: ["Argue forcefully", "Invite quieter members to contribute and refocus on goals", "Stay silent", "Leave the task"], correct: 1 },
+  { category: "CRM / SJT", question: "You notice a small calculation error in a teammate's plan shortly before submission. Best action?", options: ["Say nothing", "Point it out calmly with evidence and propose the correction", "Complain to the assessor", "Wait until after submission"], correct: 1 },
+  { category: "CRM / SJT", question: "Captain says 'continue' but you believe the approach is unstable. Best action?", options: ["Remain silent", "State 'Unstable, go-around' clearly", "Turn off autopilot quietly", "Ask cabin crew"], correct: 1 },
+  { category: "CRM / SJT", question: "You are overloaded with tasks. Best priority sequence?", options: ["Communicate, Navigate, Aviate", "Aviate, Navigate, Communicate", "Navigate, Communicate, Aviate", "Aviate, Communicate, Navigate"], correct: 1 },
+  { category: "CRM / SJT", question: "A colleague makes a minor mistake in briefing. Best response?", options: ["Correct them respectfully and ensure shared understanding", "Mock them", "Ignore it", "Report immediately as misconduct"], correct: 0 },
+  { category: "CRM / SJT", question: "In a time-pressured online test, best strategy?", options: ["Spend long on hardest questions", "Guess randomly always", "Keep moving; flag tough items; maintain accuracy", "Stop when unsure"], correct: 2 },
+  { category: "CRM / SJT", question: "You disagree with a team decision but time is short. Best action?", options: ["Support the decision after stating your concern briefly", "Refuse to cooperate", "Start a new plan alone", "Ask to restart"], correct: 0 },
+  { category: "CRM / SJT", question: "Asked about a past failure. Best angle?", options: ["Blame others", "Deny failures", "Describe what happened, what you learned, what you changed", "Keep it vague"], correct: 2 },
+  { category: "CRM / SJT", question: "A teammate misunderstands an instruction. Best action?", options: ["Let them continue", "Clarify and confirm understanding", "Complain quietly", "Take over their role"], correct: 1 },
+  { category: "CRM / SJT", question: "You notice you are becoming frustrated in a team exercise. Best response?", options: ["Raise your voice", "Pause, reset tone, focus on objective and communication", "Quit", "Ignore everyone"], correct: 1 },
+  { category: "CRM / SJT", question: "If unsure in a safety-critical context, best approach?", options: ["Guess confidently", "Admit uncertainty and seek verification", "Hide it", "Wait for someone else"], correct: 1 },
+  { category: "CRM / SJT", question: "In interview: 'Why Cathay?' Best content focus?", options: ["Salary only", "Love of flying only", "Values, operational environment, long-term commitment, learning mindset", "Criticize competitors"], correct: 2 },
+  { category: "CRM / SJT", question: "During a briefing, the other person speaks too fast and you miss details. Best action?", options: ["Pretend you heard", "Ask them to repeat/slow down", "Wait until later", "Change topic"], correct: 1 },
+  { category: "CRM / SJT", question: "You made an error in a practice test. Best response?", options: ["Ignore", "Analyze the cause and build a drill", "Quit", "Blame the question"], correct: 1 },
+  { category: "CRM / SJT", question: "Someone suggests skipping a checklist item to save time. Best response?", options: ["Agree", "Challenge and insist on completing the checklist", "Stay neutral", "Laugh"], correct: 1 },
+
+  // --- Aviation English (15) ---
+  { category: "Aviation English", question: "Choose the clearest sentence:", options: ["We was delayed due to weather.", "We were delayed due to weather.", "We are delay because weather.", "Delay weather we were."], correct: 1 },
+  { category: "Aviation English", question: "Best meaning of 'mitigate' in safety context:", options: ["Make worse", "Reduce the impact", "Ignore", "Delay"], correct: 1 },
+  { category: "Aviation English", question: "Best concise phrase: 'I will check and tell you within 10 minutes.'", options: ["Stand by, I will revert in 10 minutes.", "Hold on.", "Wait.", "Later."], correct: 0 },
+  { category: "Aviation English", question: "Most professional response to feedback:", options: ["That's unfair.", "Understood—will work on that and follow up with improvement.", "I don't agree.", "It wasn't my fault."], correct: 1 },
+  { category: "Aviation English", question: "Best incident summary order?", options: ["Background → Action → Outcome → Next steps", "Outcome → Next steps → Background → Action", "Next steps → Background → Outcome → Action", "Action → Background → Next steps → Outcome"], correct: 0 },
+  { category: "Aviation English", question: "Choose the correct sentence:", options: ["The data show a trend.", "The data shows a trend.", "The datas show a trend.", "Data shown a trend."], correct: 0 },
+  { category: "Aviation English", question: "Select the best word: 'We will ____ the issue and report back.'", options: ["investigate", "invent", "invite", "insulate"], correct: 0 },
+  { category: "Aviation English", question: "Choose the clearest instruction:", options: ["Do it ASAP.", "Please submit the form by 18:00 today.", "Submit soon.", "Try submit."], correct: 1 },
+  { category: "Aviation English", question: "Meaning of 'concisely' is:", options: ["With many details", "Briefly and clearly", "With emotion", "With uncertainty"], correct: 1 },
+  { category: "Aviation English", question: "Best connector: 'The approach was unstable; ____, a go-around was initiated.'", options: ["however", "therefore", "meanwhile", "unless"], correct: 1 },
+  { category: "Aviation English", question: "Best email opening line:", options: ["Hey.", "Dear Sir/Madam,", "To whom it may concern,", "Hi team,"], correct: 3 },
+  { category: "Aviation English", question: "Best closing line:", options: ["Thanks.", "Best regards,", "Bye.", "Ok."], correct: 1 },
+  { category: "Aviation English", question: "Which sentence is grammatically correct?", options: ["If I was you, I'd practice.", "If I were you, I'd practice.", "If I be you, I'd practice.", "If I am you, I'd practice."], correct: 1 },
+  { category: "Aviation English", question: "Best definition of 'prioritize' is:", options: ["Do last", "Rank tasks by importance", "Do randomly", "Avoid tasks"], correct: 1 },
+  { category: "Aviation English", question: "Best rewrite: 'I can't make it to the interview because I'm sick.'", options: ["I cannot attend the interview due to illness. May I reschedule?", "Interview no because sick.", "I won't come.", "Too sick."], correct: 0 }
+];
 
     // APP LOGIC
     let currentQ = 0;
